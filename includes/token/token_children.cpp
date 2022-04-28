@@ -165,7 +165,7 @@ string LParen::getValue() const{
 }
 
 int LParen::Precedence(){
-    return 3;
+    return 4;
 }
 
 
@@ -183,5 +183,5 @@ string RParen::getValue() const{
 }
 
 int RParen::Precedence(){
-    return 3;
+    return 4;
 }
