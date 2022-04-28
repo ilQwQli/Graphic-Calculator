@@ -22,7 +22,7 @@ Table SQL::command(string command_list){
         Table t(ptree["table_name"][0]);
         vectorstr field = ptree["fields"];
         Table selected = t.select(field, ptree["condition"]);
-        _recnos = selected.select_recnos();
+        _recnos = t.select_recnos();
         return selected;
     }
     return Table();
