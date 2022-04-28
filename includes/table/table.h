@@ -19,7 +19,6 @@ public:
     vector<long> select_recnos();
 
     friend ostream& operator<<(ostream& outs, const Table& t);
-
 private:
     string table_name;              //table name or file name
     string bin_table_name;

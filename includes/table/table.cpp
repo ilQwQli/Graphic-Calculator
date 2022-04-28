@@ -152,7 +152,6 @@ Table Table::select(vectorstr types, Queue<Token *> post){
     FileRecord r;
     open_fileRW(f, bin_table_name.c_str());
     vectorstr vs;
-    
     for(int i = 0; i < records_selected.size(); i++){
         r.read(f, records_selected[i]);
         for(int j = 0; j < types.size(); j++){
@@ -162,6 +161,7 @@ Table Table::select(vectorstr types, Queue<Token *> post){
         vs.clear();
     }
     f.close();
+    //cout << "last_record_number: " << t.last_record_number << endl;
     return t;
 }
 

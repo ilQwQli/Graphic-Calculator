@@ -10,7 +10,7 @@ Table SQL::command(string command_list){
     _parser.set_string(s);
     mmap_ss ptree = _parser.parse_tree();
     string command_input = ptree["command"][0];
-    // ptree.print_lookup();
+    ptree.print_lookup();
     if(command_input == "make" || command_input == "create"){
         Table t(ptree["table_name"][0], ptree["fields"]);
     }
@@ -21,9 +21,9 @@ Table SQL::command(string command_list){
     else if(command_input == "select"){
         Table t(ptree["table_name"][0]);
         vectorstr field = ptree["fields"];
-        t.select(field, ptree["condition"]);
-        _recnos = t.select_recnos();
-        return t;
+        Table selected = t.select(field, ptree["condition"]);
+        _recnos = selected.select_recnos();
+        return selected;
     }
     return Table();
 }
