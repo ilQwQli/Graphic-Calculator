@@ -43,7 +43,7 @@ void Relational::setValue(string op){
 }
 
 int Relational::Precedence(){
-    return 3;
+    return 2;
 }
 
 ResultSet* Relational::eval(const map_sl& fieldMap, const vector<mmap_sl*>& index, Token* left, Token* right){
@@ -110,11 +110,7 @@ void Logical::setValue(string op){
 }
 
 int Logical::Precedence(){
-    if(_op == "and"){
-        return 2;
-    }else{
-        return 1;
-    }
+    return 1;
 }
 
 ResultSet* Logical::eval(vector<long> left, vector<long> right){
