@@ -56,6 +56,9 @@ STokenizer& operator >> (STokenizer& s, Token& t){
     }else if(s.search(APOSTROPHE, s._buffer[s._pos])){
         start_state = START_APOSTROPHE;
         type = TOKEN_APOSTROPHE;
+    }else if(s.search(PARENTHESIS, s._buffer[s._pos])){
+        start_state = START_PARENTHESIS;
+        type = TOKEN_PARENTHESIS;
     }else{
         start_state = -1;
         type = TOKEN_UNKNOWN;
@@ -149,6 +152,12 @@ void STokenizer::make_table(int table[][MAX_COLUMNS]){
     mark_cell(START_APOSTROPHE, table, 0, 0);
     mark_cell(START_APOSTROPHE+1, table, 0, 0);
     mark_cell(START_APOSTROPHE+2, table, 0, 1);
+
+    //PARENTHESIS (row, table, column, state)
+    mark_cells(START_PARENTHESIS, table, PARENTHESIS, START_PARENTHESIS+1);
+
+    //sucess states
+    mark_cell(START_PARENTHESIS, table, 0, 1);
 }
 
 bool STokenizer::get_token(int start_state, string& token){
