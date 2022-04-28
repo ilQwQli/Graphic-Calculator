@@ -31,11 +31,12 @@ void Parser::set_string(char* s){
     Token t;
     stk >> t;
     while(stk.more()){
-        if(t.type() < TOKEN_SPACE || t.type() == TOKEN_OPERATOR || t.type() == TOKEN_APOSTROPHE){
+        if(t.type() < TOKEN_SPACE || t.type() == TOKEN_OPERATOR || t.type() == TOKEN_APOSTROPHE || t.type() == TOKEN_PARENTHESIS){
             _input_q.push(t.token_str());
         }
         stk >> t;
     }
+    // cout << _input_q << endl;
     get_parse_tree();
 }
 
