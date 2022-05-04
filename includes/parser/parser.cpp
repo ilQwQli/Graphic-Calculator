@@ -55,86 +55,89 @@ bool Parser::get_parse_tree(){
         // cout << _input_q << endl;
         popped = _input_q.pop();
         // cout << "popped: " << popped << endl;
-        if(_map.contains(popped)){
-            col = _map[popped];
-        }else{
-            col = SYM;
-        }
-        // cout << col << endl;
-        state = _table[state][col];
-        switch(state){
-            case START_SELECT:{
-                _ptree["command"] += popped;
-                break;
+        if(popped != ""){
+            if(_map.contains(popped)){
+                col = _map[popped];
+            }else{
+                col = SYM;
             }
-
-            case START_SELECT+1:{
-                _ptree["fields"] += popped;
-                break;
-            }
-
-            case START_SELECT+3:{
-                _ptree["table_name"] += popped;
-                break;
-            }
-
-            case START_SELECT+4:{
-                string yes = "yes";
-                _ptree["where"] += yes;
-                break;
-            }
-
-            case START_SELECT+5:{
-                _ptree["condition"] += popped;
-                break;
-            }
-
-            case START_CREATE:{
-                _ptree["command"] += popped;
-                break;
-            }
-
-            case START_CREATE+2:{
-                _ptree["table_name"] += popped;
-                break;
-            }
-
-            case START_CREATE+4:{
-                _ptree["fields"] += popped;
-                break;
-            }
-
-            case START_INSERT:{
-                _ptree["command"] += popped;
-                break;
-            }
-
-            case START_INSERT+2:{
-                _ptree["table_name"] += popped;
-                break;
-            }
-
-            case START_INSERT+4:{
-                _ptree["values"] += popped;
-                break;
-            }
-
-            case START_DROP:{
-                _ptree["command"] += popped;
-                break;
-            }
-
-            case START_DROP+2:{
-                _ptree["table_name"] += popped;
-                break;
-            }
-
-            default:{
-                const bool debug = false;
-                if(debug){
-                    cout << "WTF??? default???" << endl;
+            // cout << col << endl;
+            state = _table[state][col];
+            // cout << "state: " << state << endl;
+            switch(state){
+                case START_SELECT:{
+                    _ptree["command"] += popped;
+                    break;
                 }
-                break;
+
+                case START_SELECT+1:{
+                    _ptree["fields"] += popped;
+                    break;
+                }
+
+                case START_SELECT+3:{
+                    _ptree["table_name"] += popped;
+                    break;
+                }
+
+                case START_SELECT+4:{
+                    string yes = "yes";
+                    _ptree["where"] += yes;
+                    break;
+                }
+
+                case START_SELECT+5:{
+                    _ptree["condition"] += popped;
+                    break;
+                }
+
+                case START_CREATE:{
+                    _ptree["command"] += popped;
+                    break;
+                }
+
+                case START_CREATE+2:{
+                    _ptree["table_name"] += popped;
+                    break;
+                }
+
+                case START_CREATE+4:{
+                    _ptree["fields"] += popped;
+                    break;
+                }
+
+                case START_INSERT:{
+                    _ptree["command"] += popped;
+                    break;
+                }
+
+                case START_INSERT+2:{
+                    _ptree["table_name"] += popped;
+                    break;
+                }
+
+                case START_INSERT+4:{
+                    _ptree["values"] += popped;
+                    break;
+                }
+
+                case START_DROP:{
+                    _ptree["command"] += popped;
+                    break;
+                }
+
+                case START_DROP+2:{
+                    _ptree["table_name"] += popped;
+                    break;
+                }
+
+                default:{
+                    const bool debug = false;
+                    if(debug){
+                        cout << "WTF??? default???" << endl;
+                    }
+                    break;
+                }
             }
         }
     }

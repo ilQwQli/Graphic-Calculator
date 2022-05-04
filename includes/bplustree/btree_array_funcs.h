@@ -226,11 +226,9 @@ bool is_le(const T data[], int n, const T& item){
 
 template <typename T>
 ostream& operator <<(ostream& outs, const vector<T>& list){
-    outs << "|";
     for(T i: list){
-        outs << i << "|";
+        outs << i << " ";
     }
-    outs << endl;
     return outs;
 }
 

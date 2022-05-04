@@ -61,6 +61,7 @@ ResultSet* Relational::eval(const map_sl& fieldMap, const vector<mmap_sl*>& inde
     }else if(_op == ">"){
         mmap_sl::Iterator begin = index[fieldMap[left -> getValue()]] -> upper_bound(right -> getValue());
         mmap_sl::Iterator end = index[fieldMap[left -> getValue()]] -> end();
+        // cout << index[fieldMap[left -> getValue()]][0] << endl;
         for(; begin != end; begin++){
             for(int i = 0; i < (*begin).value_list.size(); i++){
                 records_selected.push_back((*begin).value_list[i]);

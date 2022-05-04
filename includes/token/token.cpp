@@ -11,13 +11,11 @@ Token::Token(string str, int type){
 }
 
 ostream& operator <<(ostream& outs, const Token& t){
-    outs << "|";
     if(t.getValue() != "\0"){
         outs << t.getValue();
     }else{
         outs << " ";
     }
-    outs << "|";
 
     return outs;
 }

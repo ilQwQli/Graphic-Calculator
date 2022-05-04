@@ -16,22 +16,22 @@ using namespace std;
 
 const vector<string> command_list = {
 
-  "make table employee fields  last, first, dep",
-  "insert into employee values Blow, Joe, CS",
-  "insert into employee values Johnson, \"Jimmy\", Chemistry",
-  "insert into employee values Yang, Bo, CS",
-  "insert into employee values \"Jackson\", Billy, Math",
-  "insert into employee values Johnson, Billy, \"Phys Ed\"",
-  "insert into employee values \"Van Gogh\", \"Jim Bob\", \"Phys Ed\"",
+  // "make table employee fields  last, first, dep",
+  // "insert into employee values Blow, Joe, CS",
+  // "insert into employee values Johnson, \"Jimmy\", Chemistry",
+  // "insert into employee values Yang, Bo, CS",
+  // "insert into employee values \"Jackson\", Billy, Math",
+  // "insert into employee values Johnson, Billy, \"Phys Ed\"",
+  // "insert into employee values \"Van Gogh\", \"Jim Bob\", \"Phys Ed\"",
   //----- student table ----------
-  "make table student fields fname, lname, major, age",
-  "insert into student values Flo, Yao, CS, 20",
-  "insert into student values \"Flo\", \"Jackson\",  Math,  21",
-  "insert into student values Calvin, Woo, Physics,22",
-  "insert into student values \"Anna Grace\", \"Del Rio\",  CS,  22",
+  "make table food fields item, site, organ, amount",
+  "insert into food values strawberry, supermarket, yes, 1",
+  "insert into food values cherry, supermarket, yes, 4",
+  "insert into food values banana, supermarket, yes, 6",
+  "insert into food values apple, market, yes, 9",
   
-  "select * from employee",
-  "select * from student",
+  // "select * from employee",
+  "select * from food",
   
   //.................
   //:AND            :
@@ -54,13 +54,13 @@ const vector<string> command_list = {
   //.................
 //  "select * from student where lname = Yang and major = CS or age < 23 and lname = Jackson",
 
-     "select * from student where ((lname = Jackson) or age > 20)",
+     "select * from food where amount >= 6",
 
      //"fname = Yao and lname = Joe and age < 30 or age > 45 and salary < 200000",
 };
 
-const int MAKE_TABLE_COMMANDS = 11;
-const int SELECT_COMMANDS = 7;
+const int MAKE_TABLE_COMMANDS = 5;
+const int SELECT_COMMANDS = 2;
 
 bool sql_basic(bool debug = false)
 {

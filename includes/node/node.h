@@ -16,7 +16,7 @@ struct node{
                                                                        _next(next),
                                                                        _prev(prev){}
     friend ostream& operator << (ostream& outs, const node<T>& print_me){
-        outs<<"<-["<<*print_me._item<<"]->";
+        outs<<"<-["<<print_me._item<<"]->";
         return outs;
     }
 };
