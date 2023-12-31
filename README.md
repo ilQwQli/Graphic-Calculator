@@ -3,6 +3,8 @@
 
 ## Name: Kevin Cao
 
+## Demo video: https://www.youtube.com/watch?v=BM-fEMDXkNk&t=1s
+
 ## Features:
   This is a graphics calculator capable of graphing many features in a graphics calculator
   It has a interactable textbox input and a input history table that can interacted and 
